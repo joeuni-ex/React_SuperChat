@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { GoogleAuthProvider } from "firebase/auth";
+import { GoogleAuthProvider, getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
@@ -14,8 +14,13 @@ const firebaseConfig = {
 //fire base 초기화
 const app = initializeApp(firebaseConfig);
 
-//구글 인증
-export const googleAuth = new GoogleAuthProvider(app);
+//구글 인증 객체
+const googleAuth = new GoogleAuthProvider();
 
-//fire store 사용
-export const db = getFirestore(app);
+//fire store db 사용
+const db = getFirestore();
+
+//파이어 베이스 인증객체
+const auth = getAuth();
+
+export { auth, googleAuth, db };
