@@ -105,6 +105,10 @@ button:disabled {
   margin: 0 auto;
 }
 
+.sign-out {
+  border-radius: 10px;
+}
+
 ul,
 li {
   text-align: left;
@@ -112,7 +116,7 @@ li {
 }
 
 p {
-  max-width: 500px;
+  max-width: 300px;
   margin-bottom: 12px;
   line-height: 24px;
   padding: 10px 20px;
@@ -146,4 +150,30 @@ img {
   height: 40px;
   border-radius: 50%;
   margin: 2px 5px;
+}
+
+.main-text {
+  max-width: 94%;
+  justify-content: center;
+}
+
+.start-main {
+  min-width: 100%;
+}
+
+@media only screen and (max-width: 600px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .start-main {
+    min-width: 94%;
+  }
+
+  input {
+    font-size: 1.2rem;
+  }
+  .chatBtn {
+    line-height: 2rem;
+  }
 }

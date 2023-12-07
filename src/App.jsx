@@ -3,6 +3,9 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { auth, googleAuth } from "./firebase";
 import { signInWithPopup, signOut } from "firebase/auth";
 import ChatRoom from "./ChatRoom";
+// react-icon
+import { FcGoogle } from "react-icons/fc";
+import { MdLogout } from "react-icons/md";
 
 function App() {
   const [user, loading, error] = useAuthState(auth);
@@ -26,7 +29,7 @@ function App() {
   return (
     <div className="App">
       <header>
-        <h1>⚛️🔥💬</h1>
+        <h1>⚛️React Chat💬</h1>
         {/* 로그인이 되어있으면 로그아웃 보여줌 */}
         {user && <SignOut />}
       </header>
@@ -49,10 +52,15 @@ function SignIn() {
 
   return (
     <>
+      <div className="main-text">
+        <p className="start-main">시작하기</p>
+      </div>
       <button className="sign-in" onClick={signInWithGoogle}>
-        Sign in with Google
+        Sign in with Google <FcGoogle />
       </button>
-      <p>🌱 커뮤니티에서 예의를 지켜주세요 😁</p>
+      <div className="main-text">
+        {/* <p>🌱 커뮤니티에서 예의를 지켜주세요 😁</p> */}
+      </div>
     </>
   );
 }
@@ -68,7 +76,7 @@ function SignOut() {
   };
   return (
     <button className="sign-out" onClick={logout}>
-      Sign Out
+      <MdLogout style={{ fontWeight: "bold" }} />
     </button>
   );
 }

@@ -9,6 +9,8 @@ import {
 import { useEffect, useRef, useState } from "react";
 import { useCollectionData } from "react-firebase-hooks/firestore";
 import { auth, db } from "./firebase";
+// react-icon
+import { TbSend } from "react-icons/tb";
 
 const ChatRoom = () => {
   const dummy = useRef(); //html을 선택하기 위한 객체
@@ -60,8 +62,8 @@ const ChatRoom = () => {
           placeholder="메세지를 입력하세요~"
         />
         {/* 메세지에 값이 저장되어있지앟으면 disabled(클릭못함) */}
-        <button type="submit" disabled={!formValue}>
-          🕊️
+        <button type="submit" disabled={!formValue} className="chatBtn">
+          <TbSend />
         </button>
       </form>
     </>
@@ -87,7 +89,7 @@ function ChatMessage(props) {
             photoURL || "https://api.adorable.io/avatars/23/abott@adorable.png"
           }
         />
-        <p>{text}</p>
+        <p className="chat">{text}</p>
       </div>
     </>
   );
