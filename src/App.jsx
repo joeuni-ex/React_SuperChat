@@ -2,6 +2,7 @@ import "./App.css";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth, googleAuth } from "./firebase";
 import { signInWithPopup, signOut } from "firebase/auth";
+import ChatRoom from "./ChatRoom";
 
 function App() {
   const [user, loading, error] = useAuthState(auth);
@@ -30,7 +31,7 @@ function App() {
         {user && <SignOut />}
       </header>
       {/* 로그인이 되어있으면 채팅룸을 보여주고 아니면 signIn보여줌 */}
-      <section>{user ? <div>채팅룸</div> : <SignIn />}</section>
+      <section>{user ? <ChatRoom /> : <SignIn />}</section>
     </div>
   );
 }
